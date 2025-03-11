@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API RAWG con Angular</title>
+</head>
+<body>
+    <!-- Contenedor con márgenes -->
+    <div class="container" [ngClass]="{'no-results': filteredGames.length === 0}"> <!-- ngClass para que en función de si encuentra algo o no ajuste la imagen de fondo a el tamaño de la pantalla -->
+
+        <h1 class="text-white text-center mt-3 mb-5">CONSUMO DE API RAWG CON ANGULAR</h1>
+        <!-- PARA MOSTRAR LA BARRA DE BÚSQUEDA Y FILTRAR POR NOMBRE DE JUEGO -->
+        <input type="text" class="form-control p-2 mt-3 mb-5" placeholder="Buscar juegos..." [(ngModel)]="searchQuery" (input)="filterGames()">
+        
+
+        <!-- PAGINACIÓN DE LOS JUEGOS -->
+        <div class="pagination justify-content-center mt-5">
+            <button class="btn btn-success text-white btn-lg m-1 mb-3" (click)="goToFirstPage()">Primera</button>
+            <button class="btn btn-info text-white btn-lg m-1 mb-3" (click)="goToPreviousPage()">Anterior</button>
+            <button class="btn btn-info text-white btn-lg m-1 mb-3" (click)="goToNextPage()">Siguiente</button>
+            <button class="btn btn-success text-white btn-lg m-1 mb-3" (click)="goToLastPage()">Última</button>
+        </div>
+
+        <!-- PARA MOSTRAR CADA JUEGO EN UNA CARD CON BUCLES -->
+        <div class="row row-cols-1 row-cols-md-5 g-3">
+            <div class="col" *ngFor="let game of filteredGames">
+                <div class="card h-100 bg-dark text-white">
+                    <img [src]="game.background_image" class="card-img-top" alt="{{ game.name }}" style="object-fit: cover; height: 200px;">
+                    <div class="card-body">
+                        <h5 class="card-title"><strong>Nombre :</strong> {{ game.name }}</h5>
+                        <h5 class="card-text"><strong>ID :</strong> {{ game.id }}</h5>
+                        <h5 class="card-text"><strong>Puntuación :</strong> {{ game.rating }} / 5.00</h5>
+                        <h5 class="card-text"><strong>Fecha de salida :</strong> {{ game.released }}</h5>
+                        <h5 class="card-text"><strong>Tiempo de juego :</strong> {{ game.playtime }} horas</h5>
+                        <h5 class="card-text"><strong>Reseñas :</strong> {{ game.reviews_count }}</h5>
+                        <h5 class="card-text"><strong>Categorías :</strong> {{ getGenres(game) | lowercase}}</h5> <!-- Para poner en minusculas el texto con una pipe -->
+                        <h5 class="card-text"><strong>Tiendas de venta digital :</strong> {{ getStoreNames(game) | lowercase}}</h5>
+                        <h5 class="card-text"><strong>Wallpapers destacados:</strong> </h5>
+                        <div class="row">
+                            <div class="col-6" *ngFor="let wallpaper of getWallpapers(game)">
+                                <img [src]="wallpaper" class="img-fluid" alt="Wallpaper" style="object-fit: cover; height: 100px;">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mensaje de "No se encontraron resultados" -->
+        <div *ngIf="!filteredGames || filteredGames.length === 0" class="text-center text-white mt-3">
+            <h5 class="text-white">No se encontraron resultados.</h5>
+        </div>
+
+        
+    </div>
+</body>
+</html>
