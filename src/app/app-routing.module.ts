@@ -23,7 +23,7 @@ const routes: Routes = [
   { path: 'crudget', component: CrudgetComponent },
   { path: 'crudgetbyid', component: CrudgetbyidComponent },
   { path: 'crudpost', component: CrudpostComponent },
-  { path: 'crudput', component: CrudputComponent },
+  { path: 'crudput/:id', component: CrudputComponent },
 
   // Ruta por defecto
   { path: '', redirectTo: '/home', pathMatch: 'full' },
