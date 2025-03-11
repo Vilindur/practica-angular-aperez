@@ -11,7 +11,6 @@ import { CrudgetComponent } from './crudget/crudget.component';
 import { CrudgetbyidComponent } from './crudgetbyid/crudgetbyid.component';
 import { CrudpostComponent } from './crudpost/crudpost.component';
 import { CrudputComponent } from './crudput/crudput.component';
-import { CruddeleteComponent } from './cruddelete/cruddelete.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -25,7 +24,6 @@ const routes: Routes = [
   { path: 'crudgetbyid', component: CrudgetbyidComponent },
   { path: 'crudpost', component: CrudpostComponent },
   { path: 'crudput', component: CrudputComponent },
-  { path: 'cruddelete', component: CruddeleteComponent },
 
   // Ruta por defecto
   { path: '', redirectTo: '/home', pathMatch: 'full' },

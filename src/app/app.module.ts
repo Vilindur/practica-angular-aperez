@@ -14,7 +14,6 @@ import { CrudgetComponent } from './crudget/crudget.component';
 import { CrudgetbyidComponent } from './crudgetbyid/crudgetbyid.component';
 import { CrudpostComponent } from './crudpost/crudpost.component';
 import { CrudputComponent } from './crudput/crudput.component';
-import { CruddeleteComponent } from './cruddelete/cruddelete.component';
 import { provideHttpClient } from '@angular/common/http'; // Importa provideHttpClient
 
 
@@ -28,8 +27,7 @@ import { provideHttpClient } from '@angular/common/http'; // Importa provideHttp
     CrudgetComponent,
     CrudgetbyidComponent,
     CrudpostComponent,
-    CrudputComponent,
-    CruddeleteComponent
+    CrudputComponent
   ],
   imports: [
     BrowserModule,

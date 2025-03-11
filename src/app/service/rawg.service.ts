@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { ApiResponse } from '../rawg-interfaces';
 
 @Injectable({
   providedIn: 'root'
@@ -12,6 +13,6 @@ export class ApiService {
   constructor(private http: HttpClient) { }
 
   getGames(pageSize: number, currentPage: number): Observable<any> {
-    return this.http.get<any>(`${this.apiUrl}?page_size=${pageSize}&page=${currentPage}&key=${this.apiKey}`);
+    return this.http.get<ApiResponse>(`${this.apiUrl}?page_size=${pageSize}&page=${currentPage}&key=${this.apiKey}`);
   }
 }
