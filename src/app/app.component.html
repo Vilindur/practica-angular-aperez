@@ -6,6 +6,7 @@
   <title>Angular App</title>
 </head>
 <body>
+  <header>
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container-fluid">
       <a class="navbar-brand me-4" routerLink="/home"><h4>Mi App</h4></a>
@@ -37,9 +38,15 @@
       </div>
     </div>
   </nav>
+  </header>
 
-  <div class="container mt-4">
+  <main class="container mt-4">
     <router-outlet></router-outlet>
-  </div>
+  </main>
+
+  <footer class="bg-dark text-white text-center py-3 mt-5">
+    <p>&copy; 2021 - Todos los derechos reservados</p>
+  </footer>
+  
 </body>
 </html>

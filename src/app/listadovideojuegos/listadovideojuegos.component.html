@@ -28,7 +28,7 @@
                 <div class="card h-100 bg-dark text-white">
                     <img [src]="game.background_image" class="card-img-top" alt="{{ game.name }}" style="object-fit: cover; height: 200px;">
                     <div class="card-body">
-                        <h5 class="card-title"><strong>Nombre :</strong> {{ game.name }}</h5>
+                        <h5 class="card-title"><strong>Nombre :</strong> {{ game.name | puntoFinal }}</h5>
                         <h5 class="card-text"><strong>ID :</strong> {{ game.id }}</h5>
                         <h5 class="card-text"><strong>Puntuación :</strong> {{ game.rating }} / 5.00</h5>
                         <h5 class="card-text"><strong>Fecha de salida :</strong> {{ game.released }}</h5>

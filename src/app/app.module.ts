@@ -14,7 +14,8 @@ import { CrudgetComponent } from './crudget/crudget.component';
 import { CrudgetbyidComponent } from './crudgetbyid/crudgetbyid.component';
 import { CrudpostComponent } from './crudpost/crudpost.component';
 import { CrudputComponent } from './crudput/crudput.component';
-import { provideHttpClient } from '@angular/common/http'; // Importa provideHttpClient
+import { provideHttpClient } from '@angular/common/http';
+import { PuntoFinalPipe } from './punto-final.pipe';
 
 
 @NgModule({
@@ -33,6 +34,7 @@ import { provideHttpClient } from '@angular/common/http'; // Importa provideHttp
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    PuntoFinalPipe
   ],
   providers: [provideHttpClient()],
   bootstrap: [AppComponent]
