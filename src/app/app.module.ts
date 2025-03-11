@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { FormsModule } from '@angular/forms';
 
 import { Pagina404Component } from './pagina404/pagina404.component';
 import { AcercadeComponent } from './acercade/acercade.component';
@@ -14,6 +15,8 @@ import { CrudgetbyidComponent } from './crudgetbyid/crudgetbyid.component';
 import { CrudpostComponent } from './crudpost/crudpost.component';
 import { CrudputComponent } from './crudput/crudput.component';
 import { CruddeleteComponent } from './cruddelete/cruddelete.component';
+import { provideHttpClient } from '@angular/common/http'; // Importa provideHttpClient
+
 
 @NgModule({
   declarations: [
@@ -31,8 +34,9 @@ import { CruddeleteComponent } from './cruddelete/cruddelete.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    FormsModule,
   ],
-  providers: [],
+  providers: [provideHttpClient()],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
